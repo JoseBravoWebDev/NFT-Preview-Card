@@ -1,0 +1,266 @@
+/* General Reset */
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html, body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+h1, h2, h3, h4, h5, h6 {
+   line-height: 1;
+}
+/*
+  9. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+/* End General Reset */
+
+/* General Settings */
+
+:root {
+   /* Primary Colors */
+   --primary: hsl(215, 51%, 70%);
+   --secondary: hsl(178, 100%, 50%);
+
+   /* Transparency Hover */
+   --primary-2: hsla(178, 100%, 50%, 0.5);
+
+   /* Neutral Colors */
+   --neutral-1: hsl(217, 54%, 11%);
+   --neutral-2: hsl(216, 50%, 16%);
+   --neutral-3: hsl(215, 32%, 27%);
+   --neutral-4: hsl(0, 0%, 100%);
+
+
+   /* Fonts Family */
+   --ff-body: 'Outfit';
+
+   /* Fonts Weight */
+   --fw-light: 300;
+   --fw-regular: 400;
+   --fw-bold: 600;
+}
+
+html {
+   scroll-behavior: smooth;
+}
+
+.sr-only {
+   border: 0 !important;
+   clip: rect(1px, 1px, 1px, 1px) !important;
+   clip-path: inset(50%) !important;
+   -webkit-clip-path: inset(50%) !important;
+   height: 1px !important;
+   width: 1px !important;
+   position: absolute !important;
+   overflow: hidden !important;
+   white-space: nowrap !important;
+   padding: 0 !important;
+   margin: -1px !important;
+}
+
+/* End General Settings */
+
+/* General Styling */
+
+body {
+   background: var(--neutral-1);
+   font-family:  var(--ff-body);
+   font-weight: var(--fw-light);
+   color: var(--primary);
+   font-size: 1.125rem;
+
+   /* For This Project only */
+   display: grid;
+   place-items: center;
+   margin: 1rem;
+}
+
+/* End General Styling */
+
+/* Utilities */
+
+.flex-group {
+   display: flex;
+   gap: 1rem;
+   flex-wrap: wrap;
+   justify-content: space-between;
+}
+
+/* End Utilities */
+
+/* Section Style */
+
+.nft-card {
+  --padding: 1.5rem;
+  --gap: 1rem;
+
+  max-width: 375px;
+  background: var(--neutral-2);
+  padding: var(--padding);
+  display: grid;
+  gap: var(--gap);
+  border-radius: 1rem;
+
+  box-shadow: 
+    0 25px 15px 15px hsla(217, 54%, 9.5%, 0.9),
+    0 25px 25px 45px hsla(217, 54%, 9.5%, 0.3);
+
+}
+
+.image-container {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.nft-img, .nft-icon {
+  border-radius: 0.5rem;
+}
+
+.nft-icon {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-2);
+  position: absolute;
+  inset: 0;
+  transform: scale(0);
+
+  transition: 0.25s ease-in;
+}
+
+.image-container:hover .nft-icon {
+  transform: scale(1);
+}
+
+
+.nft-title {
+  cursor: pointer;
+  margin-top: 1rem;
+  color: var(--neutral-4);
+  font-weight: var(--fw-bold);
+}
+
+.nft-title:is(:hover, :focus), .profile-link:is(:hover, :focus) {
+  color: var(--secondary);
+}
+
+.etherum, .time-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.etherum {
+  font-weight: var(--fw-bold);
+  color: var(--secondary);
+}
+
+.time-left {
+  font-weight: var(--fw-regular);
+}
+
+.etherum::before {
+  content: '';
+  background-image: url('images/icon-ethereum.svg');
+  width: 11px;
+  height: 18px;
+}
+
+.time-left::before {
+  content: '';
+  background-image: url('images/icon-clock.svg');
+  width: 17px;
+  height: 17px;
+}
+
+.line {
+  border-top: 1px solid var(--neutral-3);
+  height: 1px;
+  padding: 0;
+}
+
+.creator-info {
+  padding-top: 0.3rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.avatar {
+  width: 2.5rem;
+  object-fit: cover;
+  border: 2px solid var(--neutral-4);
+  border-radius: 50%;
+}
+
+.creator-name {
+  font-weight: var(--fw-regular);
+}
+
+.profile-link {
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--neutral-4);
+  font-weight: var(--fw-light);
+
+}
+
+/* End Section Style */
+
+/* Attribution Style */
+
+  .attribution { 
+    font-size: 11px; 
+    text-align: center; 
+  }
+
+  .attribution a { 
+    color: 
+    hsl(228, 45%, 44%); 
+  }
+
+/* End Attribution Style */
